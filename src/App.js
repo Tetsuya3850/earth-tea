@@ -1,18 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: true
+    };
+  }
+
+  toggleImage = () => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
+
   render() {
+    let showIMG = this.state.show ? "block" : "none";
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <img
+          src={`https://images.webcams.travel/preview/1425411457.jpg`}
+          style={{
+            display: showIMG,
+            margin: "auto",
+            width: "80%"
+          }}
+          alt={"livecam"}
+        />
+        <button type="button" onClick={this.toggleImage}>
+          Click Me
+        </button>
       </div>
     );
   }
