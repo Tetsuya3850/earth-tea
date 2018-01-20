@@ -35,5 +35,15 @@ async function liveCamSearch(cb, hour) {
   }
 }
 
-const Client = { liveCamSearch };
+async function showCam(success) {
+  try {
+    const show = await fetch("/show");
+    const bool = await show.json();
+    success(bool);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const Client = { liveCamSearch, showCam };
 export default Client;

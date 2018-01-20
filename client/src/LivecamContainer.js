@@ -6,7 +6,7 @@ class LivecamContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: true,
+      show: false,
       loading: true
     };
   }
@@ -15,6 +15,9 @@ class LivecamContainer extends Component {
     Client.liveCamSearch(livecam => {
       this.setState({ loading: false, livecam });
     }, this.props.match.params.hour);
+    Client.showCam(bool => {
+      this.setState({ show: bool });
+    });
   }
 
   render() {
