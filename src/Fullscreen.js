@@ -23,13 +23,10 @@ class Fullscreen extends Component {
           style={{
             display: showIMG,
             margin: "auto",
-            width: "80%"
+            width: "100%"
           }}
           alt={"livecam"}
         />
-        <button type="button" onClick={this.toggleImage}>
-          Click Me
-        </button>
       </div>
     );
   }
