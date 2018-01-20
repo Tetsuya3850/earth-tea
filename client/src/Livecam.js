@@ -1,23 +1,7 @@
 import React, { Component } from "react";
-import Client from "./api";
 import { timeConverter } from "./utils";
 
-class Fullscreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: true,
-      loading: true,
-      livecam: {}
-    };
-  }
-
-  componentDidMount() {
-    Client.liveCamSearch(livecam => {
-      this.setState({ loading: false, livecam });
-    }, this.props.match.params.hour);
-  }
-
+class Livecam extends Component {
   renderLoading() {
     return <div>Loading...</div>;
   }
@@ -27,8 +11,8 @@ class Fullscreen extends Component {
   }
 
   renderLivecam() {
-    let showIMG = this.state.show ? "block" : "none";
-    const { id, title, time } = this.state.livecam;
+    let showIMG = this.props.show ? "block" : "none";
+    const { id, title, time } = this.props.livecam;
     const standardTime = timeConverter(time);
     return (
       <div>
@@ -57,9 +41,9 @@ class Fullscreen extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (this.props.loading) {
       return this.renderLoading();
-    } else if (this.state.livecam) {
+    } else if (this.props.livecam) {
       return this.renderLivecam();
     } else {
       return this.renderError();
@@ -67,4 +51,4 @@ class Fullscreen extends Component {
   }
 }
 
-export default Fullscreen;
+export default Livecam;
