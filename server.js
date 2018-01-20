@@ -4,12 +4,9 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT;
 
-app.get("/", (req, res) => {
-  res.send("\n\nHello, world!\n\n");
-});
-
 app.get("/show", (req, res) => {
-  res.send(true);
+  var random_boolean = Math.random() >= 0.5;
+  res.send(random_boolean);
 });
 
 app.listen(port, () => {

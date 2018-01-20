@@ -39,6 +39,7 @@ async function showCam(success) {
   try {
     const show = await fetch("/show");
     const bool = await show.json();
+    console.log(bool);
     success(bool);
   } catch (err) {
     console.log(err);

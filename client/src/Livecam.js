@@ -16,7 +16,7 @@ class Livecam extends Component {
     const { id, title, time } = this.props.livecam;
     const standardTime = timeConverter(time);
     return (
-      <div className="fade">
+      <div className="fadeI">
         <img
           src={`https://images.webcams.travel/thumbnail/${id}.jpg`}
           style={{

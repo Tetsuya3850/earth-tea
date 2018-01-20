@@ -18,6 +18,12 @@ class LivecamContainer extends Component {
     Client.showCam(bool => {
       this.setState({ show: bool });
     });
+    setInterval(() => {
+      Client.showCam(bool => {
+        this.setState({ show: bool });
+      });
+      console.log("fetch");
+    }, 10000);
   }
 
   render() {
