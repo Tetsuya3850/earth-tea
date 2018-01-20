@@ -12,7 +12,7 @@ class Livecam extends Component {
   }
 
   renderLivecam() {
-    let showIMG = this.props.show ? "block" : "none";
+    let show = this.props.show ? "block" : "none";
     const { id, title, time } = this.props.livecam;
     const standardTime = timeConverter(time);
     return (
@@ -20,7 +20,7 @@ class Livecam extends Component {
         <img
           src={`https://images.webcams.travel/thumbnail/${id}.jpg`}
           style={{
-            display: showIMG,
+            display: show,
             margin: "auto",
             width: "100%"
           }}
@@ -28,6 +28,7 @@ class Livecam extends Component {
         />
         <div
           style={{
+            display: show,
             position: "absolute",
             bottom: "10%",
             left: "40%",
