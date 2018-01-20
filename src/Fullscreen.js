@@ -28,7 +28,7 @@ class Fullscreen extends Component {
 
   renderLivecam() {
     let showIMG = this.state.show ? "block" : "none";
-    const { id, time } = this.state.livecam;
+    const { id, title, time } = this.state.livecam;
     const standardTime = timeConverter(time);
     return (
       <div>
@@ -40,16 +40,17 @@ class Fullscreen extends Component {
             width: "100%"
           }}
         />
-        <p
+        <div
           style={{
             position: "absolute",
-            top: 80,
-            left: 40,
+            bottom: "10%",
+            left: "40%",
             zIndex: 100
           }}
         >
-          {standardTime}
-        </p>
+          <p>{title}</p>
+          <p>{standardTime}</p>
+        </div>
       </div>
     );
   }

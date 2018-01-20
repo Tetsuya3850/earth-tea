@@ -18,7 +18,6 @@ async function liveCamSearch(cb, hour) {
     const { id, title } = json.result.webcams[0];
     const { latitude, longitude } = json.result.webcams[0].location;
     const { update } = json.result.webcams[0].image;
-    console.log(update);
 
     const timeResponse = await fetch(
       `https://maps.googleapis.com/maps/api/timezone/json?location=${latitude},${longitude}&timestamp=${update}&key=AIzaSyDqGwndV4T8AeEGjD0b0kwi2vjdGlHWu6s`
