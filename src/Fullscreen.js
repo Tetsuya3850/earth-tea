@@ -39,6 +39,7 @@ class Fullscreen extends Component {
             margin: "auto",
             width: "100%"
           }}
+          alt={title}
         />
         <div
           style={{
