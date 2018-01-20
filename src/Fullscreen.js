@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Client from "./api";
+import { timeConverter } from "./utils";
 
 class Fullscreen extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Fullscreen extends Component {
   componentDidMount() {
     Client.liveCamSearch(livecam => {
       this.setState({ loading: false, livecam });
-    }, "3");
+    }, "1");
   }
 
   renderLoading() {
@@ -27,7 +28,8 @@ class Fullscreen extends Component {
 
   renderLivecam() {
     let showIMG = this.state.show ? "block" : "none";
-    const { id } = this.state.livecam;
+    const { id, time } = this.state.livecam;
+    const standardTime = timeConverter(time);
     return (
       <div>
         <img
@@ -38,6 +40,16 @@ class Fullscreen extends Component {
             width: "100%"
           }}
         />
+        <p
+          style={{
+            position: "absolute",
+            top: 80,
+            left: 40,
+            zIndex: 100
+          }}
+        >
+          {standardTime}
+        </p>
       </div>
     );
   }
