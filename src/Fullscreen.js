@@ -15,7 +15,7 @@ class Fullscreen extends Component {
   componentDidMount() {
     Client.liveCamSearch(livecam => {
       this.setState({ loading: false, livecam });
-    }, "1");
+    }, this.props.match.params.hour);
   }
 
   renderLoading() {

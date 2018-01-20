@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route path="/fullscreen" component={Fullscreen} />
+          <Route path="/fullscreen/:hour" component={Fullscreen} />
         </Switch>
       </div>
     );
