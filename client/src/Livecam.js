@@ -3,10 +3,6 @@ import { timeConverter } from "./utils";
 import "./livecam.css";
 
 class Livecam extends Component {
-  componentDidUpdate() {
-    this.slideshow();
-  }
-
   renderLoading() {
     return <div>"Loading..."</div>;
   }
@@ -31,28 +27,10 @@ class Livecam extends Component {
     ));
 
     return (
-      <div>
+      <div id="container">
         <figure id="slideshow">{allLivecams}</figure>
       </div>
     );
-  }
-
-  slideshow() {
-    const imgs = document.getElementById("slideshow").children;
-    const interval = 4000;
-    let currentPic = 0;
-    imgs[currentPic].style.webkitAnimation = "fadey " + interval + "ms";
-    imgs[currentPic].style.animation = "fadey " + interval + "ms";
-    setInterval(() => {
-      imgs[currentPic].removeAttribute("style");
-      if (currentPic === imgs.length - 1) {
-        currentPic = 0;
-      } else {
-        currentPic++;
-      }
-      imgs[currentPic].style.webkitAnimation = "fadey " + interval + "ms";
-      imgs[currentPic].style.animation = "fadey " + interval + "ms";
-    }, interval);
   }
 
   render() {

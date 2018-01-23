@@ -27,7 +27,7 @@ figure#slideshow div {
 }
 figure#slideshow div p {
   position: absolute;
-  left: 40%;
+  left: 30%;
   bottom: 10%;
   z-index: 100;
 }

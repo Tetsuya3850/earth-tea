@@ -15,18 +15,43 @@ class LivecamContainer extends Component {
     Client.liveCamSearch(livecams => {
       this.setState({ loading: false, livecams });
     }, this.props.match.params.hour);
-    /*
-    Client.showCam(bool => {
-      this.setState({ show: bool });
-    });
+  }
 
+  componentDidUpdate() {
+    this.slideshow();
+    this.flagOnOff();
+  }
+
+  slideshow() {
+    const imgs = document.getElementById("slideshow").children;
+    const interval = 6000;
+    let currentPic = 0;
+    imgs[currentPic].style.webkitAnimation = "fadey " + interval + "ms";
+    imgs[currentPic].style.animation = "fadey " + interval + "ms";
+    setInterval(() => {
+      imgs[currentPic].removeAttribute("style");
+      if (currentPic === imgs.length - 1) {
+        currentPic = 0;
+      } else {
+        currentPic++;
+      }
+      imgs[currentPic].style.webkitAnimation = "fadey " + interval + "ms";
+      imgs[currentPic].style.animation = "fadey " + interval + "ms";
+    }, interval);
+  }
+
+  flagOnOff() {
     setInterval(() => {
       Client.showCam(bool => {
-        this.setState({ show: bool });
+        const container = document.getElementById("container");
+        if (bool === true) {
+          container.style.display = "block";
+        } else {
+          container.style.display = "none";
+        }
       });
       console.log("fetch");
     }, 10000);
-    */
   }
 
   render() {
