@@ -12,8 +12,8 @@ class LivecamContainer extends Component {
   }
 
   componentDidMount() {
-    Client.liveCamSearch(livecam => {
-      this.setState({ loading: false, livecam });
+    Client.liveCamSearch(livecams => {
+      this.setState({ loading: false, livecams });
     }, this.props.match.params.hour);
     /*
     Client.showCam(bool => {
