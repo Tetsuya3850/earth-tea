@@ -20,6 +20,7 @@ class LivecamContainer extends Component {
   componentDidUpdate() {
     this.slideshow();
     this.flagOnOff();
+    this.reload();
   }
 
   slideshow() {
@@ -50,8 +51,13 @@ class LivecamContainer extends Component {
           container.style.display = "none";
         }
       });
-      console.log("fetch");
     }, 10000);
+  }
+
+  reload() {
+    setInterval(() => {
+      window.location.reload();
+    }, 300000);
   }
 
   render() {
