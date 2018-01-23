@@ -28,12 +28,3 @@ export const livecamOffset = {
   12: -36000
 };
 
-export function calcLocalOffset() {
-  const d = new Date();
-  const tz = d
-    .toString()
-    .split("GMT+")[1]
-    .split(" (")[0];
-
-  return parseInt(tz) * 36;
-}

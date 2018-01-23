@@ -1,4 +1,5 @@
-import { livecamSeed, livecamOffset, calcLocalOffset } from "./livecamSeed";
+import { livecamSeed, livecamOffset } from "./livecamSeed";
+import { calcLocalOffset } from "./utils";
 
 async function liveCamSearch(cb, hour) {
   try {
@@ -13,7 +14,6 @@ async function liveCamSearch(cb, hour) {
       }
     );
     const json = await response.json();
-    console.log(json);
     const localOffset = calcLocalOffset();
     const livecams = [];
     json.result.webcams.forEach(function(webcam) {
@@ -24,7 +24,6 @@ async function liveCamSearch(cb, hour) {
       };
       livecams.push(livecam);
     });
-    console.log(livecams);
     cb(livecams);
   } catch (err) {
     console.log(err);

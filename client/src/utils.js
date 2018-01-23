@@ -24,3 +24,13 @@ export function timeConverter(timestamp) {
   var time = hour + " " + min + " " + month + " " + date;
   return time;
 }
+
+export function calcLocalOffset() {
+  const d = new Date();
+  const tz = d
+    .toString()
+    .split("GMT+")[1]
+    .split(" (")[0];
+
+  return parseInt(tz, 10) * 36;
+}
