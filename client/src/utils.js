@@ -1,5 +1,3 @@
-export const japanOffset = 32400;
-
 export function timeConverter(timestamp) {
   if (timestamp === 0) {
     return false;

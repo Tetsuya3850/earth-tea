@@ -13,7 +13,7 @@ class Livecam extends Component {
 
   renderLivecam() {
     let show = this.props.show ? "block" : "none";
-    const { id, title, time } = this.props.livecam;
+    const { id, title, time } = this.props.livecam[0];
     const standardTime = timeConverter(time);
     return (
       <div className="fadeI">

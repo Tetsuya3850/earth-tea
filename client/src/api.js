@@ -1,11 +1,10 @@
-import { livecamSeed } from "./livecamSeed";
-import { japanOffset } from "./utils";
+import { livecamSeed, livecamOffset, calcLocalOffset } from "./livecamSeed";
 
 async function liveCamSearch(cb, hour) {
   try {
     const response = await fetch(
       `https://webcamstravel.p.mashape.com/webcams/list/webcam=${
-        livecamSeed[hour][0]
+        livecamSeed[hour]
       }?lang=en&show=webcams%3Aimage%2Clocation`,
       {
         headers: {
@@ -14,22 +13,19 @@ async function liveCamSearch(cb, hour) {
       }
     );
     const json = await response.json();
-
-    const { id, title } = json.result.webcams[0];
-    const { latitude, longitude } = json.result.webcams[0].location;
-    const { update } = json.result.webcams[0].image;
-
-    const timeResponse = await fetch(
-      `https://maps.googleapis.com/maps/api/timezone/json?location=${latitude},${longitude}&timestamp=${update}&key=AIzaSyDqGwndV4T8AeEGjD0b0kwi2vjdGlHWu6s`
-    );
-    const timejson = await timeResponse.json();
-
-    const livecam = {
-      id,
-      title,
-      time: update + timejson.rawOffset - japanOffset
-    };
-    cb(livecam);
+    console.log(json);
+    const localOffset = calcLocalOffset();
+    const livecams = [];
+    json.result.webcams.forEach(function(webcam) {
+      const livecam = {
+        id: webcam.id,
+        title: webcam.title,
+        time: webcam.image.update + livecamOffset[hour] - localOffset
+      };
+      livecams.push(livecam);
+    });
+    console.log(livecams);
+    cb(livecams);
   } catch (err) {
     console.log(err);
   }
