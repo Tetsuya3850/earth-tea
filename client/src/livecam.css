@@ -27,9 +27,13 @@ figure#slideshow div {
 }
 figure#slideshow div p {
   position: absolute;
-  left: 30%;
-  bottom: 10%;
+  width: 100%;
+  bottom: 4%;
+  text-align: center;
   z-index: 100;
+  text-shadow: 2px 2px 4px #000000;
+  line-height: 150%;
+  font-size: 115%;
 }
 figure#slideshow div:first-child {
   position: relative;

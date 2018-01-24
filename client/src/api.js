@@ -14,11 +14,14 @@ async function liveCamSearch(cb, hour) {
       }
     );
     const json = await response.json();
+    console.log(json);
     const localOffset = calcLocalOffset();
     const livecams = [];
     json.result.webcams.forEach(function(webcam) {
       const livecam = {
         id: webcam.id,
+        city: webcam.location.city,
+        country: webcam.location.country,
         title: webcam.title,
         time: webcam.image.update + livecamOffset[hour] - localOffset
       };

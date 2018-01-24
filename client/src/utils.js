@@ -20,8 +20,8 @@ export function timeConverter(timestamp) {
   var month = months[a.getMonth()];
   var date = a.getDate();
   var hour = a.getHours();
-  var min = a.getMinutes();
-  var time = hour + " " + min + " " + month + " " + date;
+  var min = a.getMinutes() < 10 ? "0" + a.getMinutes() : a.getMinutes();
+  var time = hour + " : " + min + " " + month + " " + date;
   return time;
 }
 

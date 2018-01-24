@@ -21,7 +21,8 @@ class Livecam extends Component {
           alt={livecam.title}
         />
         <p style={{ display: show }}>
-          {livecam.title} <br /> {timeConverter(livecam.time)}
+          {livecam.city} / {livecam.country} <br />
+          {timeConverter(livecam.time)}
         </p>
       </div>
     ));
