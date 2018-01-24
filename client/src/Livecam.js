@@ -4,7 +4,7 @@ import "./livecam.css";
 
 class Livecam extends Component {
   renderLoading() {
-    return <div>"Loading..."</div>;
+    return <div className="loader" />;
   }
 
   renderError() {
