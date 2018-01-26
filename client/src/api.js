@@ -34,10 +34,9 @@ async function liveCamSearch(cb, hour) {
 
 async function showCam(success) {
   try {
-    const show = await fetch("/show");
-    const bool = await show.json();
-    console.log(bool);
-    success(bool);
+    const show = await fetch("http://sphere.blue/te3/te3_mat_tearoom/flag.txt");
+    console.log(show);
+    success();
   } catch (err) {
     console.log(err);
   }

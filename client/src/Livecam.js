@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { timeConverter } from "./utils";
 import "./livecam.css";
+import loader from "./loading.gif";
 
 class Livecam extends Component {
   renderLoading() {
-    return <div className="loader" />;
+    return (
+      <div className="loaderContainer">
+        <img src={loader} />
+      </div>
+    );
   }
 
   renderError() {
