@@ -17,15 +17,14 @@ class Livecam extends Component {
   }
 
   renderLivecam() {
-    let show = this.props.show ? "block" : "none";
     const allLivecams = this.props.livecams.map(livecam => (
       <div key={livecam.title}>
         <img
-          style={{ display: show, width: "100%" }}
+          style={{ width: "100%" }}
           src={`https://images.webcams.travel/thumbnail/${livecam.id}.jpg`}
           alt={livecam.title}
         />
-        <p style={{ display: show }}>
+        <p>
           {livecam.city} / {livecam.country} <br />
           {timeConverter(livecam.time)}
         </p>

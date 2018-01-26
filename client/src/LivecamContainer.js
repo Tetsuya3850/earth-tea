@@ -6,8 +6,7 @@ class LivecamContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
-      show: true
+      loading: true
     };
   }
 
@@ -25,7 +24,7 @@ class LivecamContainer extends Component {
 
   slideshow() {
     const imgs = document.getElementById("slideshow").children;
-    const interval = 8000;
+    const interval = 10000;
     let currentPic = 0;
     imgs[currentPic].style.webkitAnimation = "fadey " + interval + "ms";
     imgs[currentPic].style.animation = "fadey " + interval + "ms";
