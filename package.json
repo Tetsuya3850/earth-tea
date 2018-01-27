@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Tetsuya3850/earth-tea#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
   }
 }

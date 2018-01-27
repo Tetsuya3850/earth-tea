@@ -34,9 +34,8 @@ async function liveCamSearch(cb, hour) {
 
 async function showCam(success) {
   try {
-    const show = await fetch("/show");
+    const show = await fetch("https://flag-tea.herokuapp.com/flag");
     const bool = await show.json();
-    console.log(bool);
     success(bool);
   } catch (err) {
     console.log(err);

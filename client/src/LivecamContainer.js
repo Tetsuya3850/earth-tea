@@ -44,13 +44,13 @@ class LivecamContainer extends Component {
     setInterval(() => {
       Client.showCam(bool => {
         const container = document.getElementById("container");
-        if (bool === true) {
+        if (bool === "1") {
           container.style.display = "block";
         } else {
           container.style.display = "none";
         }
       });
-    }, 10000);
+    }, 15000);
   }
 
   reload() {
