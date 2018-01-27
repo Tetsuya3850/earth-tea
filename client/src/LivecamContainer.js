@@ -56,7 +56,7 @@ class LivecamContainer extends Component {
   reload() {
     setInterval(() => {
       window.location.reload();
-    }, 300000);
+    }, 600000);
   }
 
   render() {
