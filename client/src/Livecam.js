@@ -7,7 +7,7 @@ class Livecam extends Component {
   renderLoading() {
     return (
       <div className="loaderContainer">
-        <img src={loader} />
+        <img src={loader} alt="loader" />
       </div>
     );
   }

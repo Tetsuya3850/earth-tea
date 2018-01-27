@@ -50,7 +50,7 @@ class LivecamContainer extends Component {
           container.style.display = "none";
         }
       });
-    }, 15000);
+    }, 8000);
   }
 
   reload() {
